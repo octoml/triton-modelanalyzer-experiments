@@ -1,0 +1,41 @@
+model_repository: /models
+export_path: /export
+checkpoint_directory: /output/checkpoints
+output_model_repository_path: /output/repository
+override_output_model_repository: true
+run_config_search_min_concurrency: 1
+run_config_search_max_concurrency: 8
+run_config_search_min_instance_count: 1
+run_config_search_max_instance_count: 4
+triton_launch_mode: c_api
+profile_models:
+  # gpt2:
+  #   perf_analyzer_flags:
+  #     input-data: zero
+  # hf-distilbert-uncased:
+  #   perf_analyzer_flags:
+  #     input-data: zero
+  # hf-roberta-base:
+  #   perf_analyzer_flags:
+  #     input-data: zero
+  # inceptionv2:
+  #   perf_analyzer_flags:
+  #     input-data: random  
+  # mobilenetv2:
+  #   perf_analyzer_flags:
+  #     input-data: random  
+  # resnet50v2:
+  #   perf_analyzer_flags:
+  #     input-data: random  
+  # squeezenet1.1:
+  #   perf_analyzer_flags:
+  #     input-data: random  
+  # unet:
+  #   perf_analyzer_flags:
+  #     input-data: random  
+  # yolov3:
+  #   perf_analyzer_flags:
+  #     input-data: random  
+  yolov5s:
+    perf_analyzer_flags:
+      input-data: random  
