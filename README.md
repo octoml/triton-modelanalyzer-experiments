@@ -35,3 +35,17 @@ This repo contains artifacts and configurations to use the Triton Model Analyzer
 To Supply Custom InputData to PerfAnalyzer
 - https://github.com/triton-inference-server/server/blob/main/docs/user_guide/perf_analyzer.md#input-data
 - https://github.com/triton-inference-server/model_analyzer/issues/529#issuecomment-1249402417
+
+To configure ONNX backend parameters - There are two options
+1. Set the following in the model's config.pbtxt
+```
+parameters { key: "intra_op_thread_count" value: { string_value: "16" } }
+```
+2. Set the following as flags in the model analyzer yaml
+```
+  yolov5s:
+    triton_server_flags:
+      log_verbose: True
+      backend-config:
+        onnxruntime,intra_op_thread_count=1
+```        
