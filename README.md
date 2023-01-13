@@ -40,6 +40,7 @@ To configure ONNX backend parameters - There are two options
 1. Set the following in the model's config.pbtxt
 ```
 parameters { key: "intra_op_thread_count" value: { string_value: "16" } }
+parameters { key: "inter_op_thread_count" value: { string_value: "1" } }
 ```
 2. Set the following as flags in the model analyzer yaml
 ```
@@ -47,5 +48,7 @@ parameters { key: "intra_op_thread_count" value: { string_value: "16" } }
     triton_server_flags:
       log_verbose: True
       backend-config:
+        onnxruntime,inter_op_thread_count=1
         onnxruntime,intra_op_thread_count=1
-```        
+        onnxruntime,enable-global-threadpool=1        
+```
